@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Craigslist</title>
+    </head>
+
+    <body>
+        {% block content %}
+        <h1>Register with Craigslist</h1>
+
+        {% if registered %}
+        <strong>thank you for registering!</strong>
+        <a href="/cl/">Return to the homepage.</a><br />
+        {% else %}
+        Craigslist says: <strong>register here!</strong><br />
+
+        <form id="user_form" method="post" action="/cl/register/"
+                enctype="multipart/form-data">
+
+            {% csrf_token %}
+            {{ user_form.as_p }}
+            {{ profile_form.as_p }}
+
+            <input type="submit" name="submit" value="Register" />
+        </form>
+        {% endif %}
+        {% endblock %}
+    </body>
+</html>
