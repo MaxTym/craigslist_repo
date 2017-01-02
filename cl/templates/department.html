@@ -9,7 +9,7 @@
     <body>
 
     {% block content %}
-        <h2>All {{ user.profile.username }} items</h2>
+        <h2>All {{ department }} items</h2>
         {% for item in items %}
             <li><a href="../item/{{ item.id }}">{{ item.item }} {{ item.price }}$</a></li>
         {% endfor %}

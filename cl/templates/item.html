@@ -12,9 +12,12 @@
         <h4><a href="../">Home</a> </h4>
         <h4><a href="../for_sale">All items</a> </h4>
         <h2>{{item.item}}</h2>
-        <h3>{{item.price}}</h3>
-        <h4>Description: {{item.description}} </h4>
-        <!-- <img src="{{ item.picture.url }}"> -->
+        <h3>{{item.price}} $</h3>
+        <hr>
+        <p>Location:<a href="../location/{{item.location}}">{{item.get_location_display}}</a></p>
+        <p>Description: {{item.description}} </p>
+        <p>{{item.get_condition_display}}</p>
+
 
     {% endblock %}
     </body>

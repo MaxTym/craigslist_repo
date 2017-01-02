@@ -12,11 +12,12 @@ from django.contrib.auth.models import User
 
 
 def index(request):
-    return render(request, 'index.html')
+    items = models.Ad.objects.all()
+    return render(request, 'index.html', {'items': items})
+
 
 
 def register(request):
-
     registered = False
     if request.method == 'POST':
         user_form = UserForm(data=request.POST)
@@ -37,6 +38,7 @@ def register(request):
     return render(request,
             'registration/register.html',
             {'user_form': user_form, 'profile_form': profile_form, 'registered': registered} )
+
 
 def add_item(request):
     if request.method == 'POST':
@@ -61,6 +63,23 @@ def item_detail(request, var):
     return render(request, 'item.html', {'item': item})
 
 
+def item_location(request, var):
+    items = models.Ad.objects.filter(location=var)
+    first = items[0]
+    return render(request, 'location.html', {'items': items, 'first': first})
+
+
+def item_department(request, var):
+    items = models.Ad.objects.filter(department=var)
+    department = var
+    return render(request, 'department.html', {'items': items, 'department': department})
+
+
+def items_for_user(request, var):
+    items = models.Ad.objects.filter(seller=var)
+    return render(request, 'profile.html', {'items': items})
+
+
 @login_required
 @transaction.atomic
 def update_profile(request):
@@ -77,7 +96,7 @@ def update_profile(request):
     else:
         user_form = UserForm(instance=request.user)
         profile_form = ProfileForm(instance=request.user.profile)
-    return render(request, 'profile.html', {
+    return render(request, 'update_profile.html', {
         'user_form': user_form,
         'profile_form': profile_form
     })

@@ -10,4 +10,7 @@ urlpatterns = [
     url(r'^for_sale$', views.all_items, name="all_items"),
     url(r'^item/([0-9]+)', views.item_detail, name="item"),
     url(r'^update_profile$', views.update_profile, name="update_profile"),
+    url(r'^location/([A-Z]+)', views.item_location, name="location"),
+    url(r'^department/([A-Za-z]+)', views.item_department, name="department"),
+    url(r'^profile/([0-9]+)', views.items_for_user, name="profile"),
 ]

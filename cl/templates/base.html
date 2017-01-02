@@ -2,8 +2,9 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-        <link rel="stylesheet" href="{% static 'cl/css/base.css' %}">
+        <link rel="stylesheet" href="{% static 'css/base.css' %}">
         <meta charset="utf-8">
         <title>Craigslist</title>
     </head>
@@ -22,23 +23,18 @@
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="update_profile">Profile</a></li>
+        <li><a href="../update_profile">Profile</a></li>
         <li><a href="#">{{ user.profile.get_location_display }}</a></li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Department <span class="caret"></span></a>
+          <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Department<span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-              <select name="movie">
-                  {% for dep in ad.department %}
-                  <option value="{{ad.department}}" selected="selected">{{ad.department}}</option>
-                  {% endfor %}
-              </select>
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
+            <li><a href="#">Coming soon...</a></li>
+            <li><a href="#">Coming soon...</a></li>
+            <li><a href="#">Coming soon...</a></li>
             <li class="divider"></li>
-            <li><a href="#">Separated link</a></li>
+            <li><a href="#">Coming soon...</a></li>
             <li class="divider"></li>
-            <li><a href="#">One more separated link</a></li>
+            <li><a href="#">Coming soon...</a></li>
           </ul>
         </li>
       </ul>

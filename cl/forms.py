@@ -10,10 +10,13 @@ class UserForm(forms.ModelForm):
         model = User
         fields = ('username', 'email', 'password')
 
+
 class ProfileForm(forms.ModelForm):
+
     class Meta:
         model = Profile
         fields = ('location',)
+
 
 class ItemsForm(forms.ModelForm):
 
@@ -22,6 +25,6 @@ class ItemsForm(forms.ModelForm):
         fields = ['item', 'price', 'department', 'description', 'location', 'condition', 'picture']
         exclude = ['created_at', 'updated_at']
 
+
 class ImageUploadForm(forms.Form):
-    """Image upload form."""
     image = forms.ImageField()
